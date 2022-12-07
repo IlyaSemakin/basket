@@ -1,0 +1,93 @@
+.basket {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    border: 1px solid #1a3235;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background: #fff;
+    transition: 0.4s;
+    &_header {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        background: #d8d8d8;
+        padding: 15px 10px;
+        height: 120.5px;
+        &_title {
+            color: #1a3235;
+            font-weight: 900;
+        }
+        &_total {
+            margin-left: auto;
+            span {
+                b {
+                    font-size: 25px;
+                }
+            }
+        }
+        .toggle_button {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            border-radius: 50%;
+            border: 1px solid #424242;
+            background: #fff;
+            width: 30px;
+            height: 30px;
+            transform: rotate(180deg) translateX(50%);
+            &:hover {
+                background: #fff;
+            }
+        }
+    }
+    &_content {
+        padding: 10px;
+        transition: 1s;
+        height: calc(100vh - 160px);
+        overflow: hidden;
+        &.close-content {
+            height: 0;
+            overflow: hidden;
+            padding: 0;
+        }
+        &_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #6e6e6e;
+        }
+        &_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &_name {
+                font-weight: 600;
+            }
+            &_price {
+                font-weight: 900;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .basket {
+        top: auto;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        flex-direction: column-reverse;
+        &_content {
+            height: calc(100vh - 120.5px);
+        }
+        .toggle_button {
+            display: flex;
+            top: -15px;
+            bottom: auto;
+            transform: rotate(0) translateX(-50%);
+        }
+    }
+}
